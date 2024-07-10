@@ -414,9 +414,13 @@ h3.my-profession {
     margin-top: 10px;
 }
 .about .about-content .skills {
-    flex: 0 0 40%;
-    max-width: 40%;
-    margin-top: 40px;
+    /* flex: 0 0 40%; */
+    /* max-width: 40%; */
+    width:100%;
+    margin-top: 16px;
+}
+.about .about-content .skills li{
+    margin-top: 8px;
 }
 .about .about-content .skills .skill-item {
     flex: 0 0 100%;

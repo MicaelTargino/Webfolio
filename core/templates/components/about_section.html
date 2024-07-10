@@ -10,20 +10,66 @@
             <div class="about-content padd-15">
                 <div class="row">
                     <div class="about-text padd-15">
-                        <h3>I'm Micael Targino and <span>Web Developer</span></h3>
-                        <p>My tech journey began in 2020 with the creation of a simple website...</p>
+                        <style>
+                            .about-text strong {
+                                color: var(--skin-color); opacity: 1; font-weight:900;
+                            }
+                            .about-content .row>h2 {
+                                color:var(--text-black-900);
+                            }
+                            .about-content .skills {
+                                width: 100vw !important;
+                                max-width: 100% !important;
+                            }
+                            .about-content .skills li {
+                                color:var(--text-black-900);
+                            }
+                            .about-content .skills li strong {
+                                color: var(--skin-color); opacity: 1; font-weight:900;
+                            }
+                        </style>
+                        <h3>I'm a<span>Web Developer</span> since 2020</h3>
+                        <p>
+                            I am a <strong>compromised Software Engineer</strong> engaged to deliver innovative solutions. 
+
+                            <br><br>
+                            
+                            My tech journey began creating a simple website that ignited my programming passion. This led me to a Computer Science course at <strong>Harvard</strong>, providing a robust foundation in <strong>web development</strong> and <strong>programming</strong>.
+                            
+                            <br><br>
+                            
+                            Currently, I am a <strong>Software Engineer at Metrike</strong>, with a focus on <strong>Data Engineering and Backend</strong>, and an undergraduate <strong>Computer Science student at UFPB University</strong>.
+                            
+                            <br><br>
+                            
+                            I am dedicated to <strong>continuous learning</strong> and committed to becoming a <strong>versatile programmer</strong>, ready to tackle diverse challenges in the ever-evolving tech landscape.
+                        </p>
                     </div>
+                </div>
+                <div class='row'>
+                    <h2>Main Skills:</h2>
+                    <ul class="skills" >
+                        <li><strong>Backend:</strong> Python, Pandas, SQLAlchemy, FastAPI, Flask, Django/DRF, Apache Airflow</li>
+                        <li><strong>Frontend:</strong> HTML, CSS, JavaScript/Typescript, NextJS/React, Prisma, Redux and Tailwind</li>
+                        <li><strong>Database Management:</strong> SQL, MySQL, PostgreSQL and Redis</li>
+                        <li><strong>Tools:</strong> Docker, Nginx, Git and DigitalOcean</li>
+                        <li><strong>Basic proficiency:</strong> C/C++, PHP, AI/ML</li>
+                        <li><strong>Future Goals:</strong> Learning Go, Angular, MongoDB, Kubernetes and AWS</li>
+                    </ul>
                 </div>
                 <div class="row">
                     <div class="personal-info padd-15">
-                        <div class="row">
+                        {% comment %} <div class="row"> {% endcomment %}
                             <div class="info-item padd-15">
                                 <p>Degree: <span>CS Undergraduate</span></p>
                             </div>
                             <div class="info-item padd-15">
-                                <p>City : <span>João Pessoa - PB</span></p>
+                                <p>Country : <span>Brazil</span></p>
                             </div>
-                        </div>
+                            <div class="info-item padd-15">
+                                <p>Age: <span>19</span></p>
+                            </div>
+                        {% comment %} </div> {% endcomment %}
                         <div class="row">
                             <div class="buttons padd-15">
                                 <a href="{% static 'core/cv/CV.pdf' %}" download="CV_Micael_Targino.pdf" class="btnn">Download CV</a>
@@ -36,29 +82,35 @@
                         <h3 class="title">Education</h3>
                         <div class="timeline-box padd-15">
                             <div class="timeline shadow-dark">
-                                <div class="timeline-item">
+                                {% comment %} <div class="timeline-item">
                                     <div class="circle-dot"></div>
                                     <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2020 - 2021</h3>
                                     <h4 class="timeline-title">Web Development Course</h4>
                                     <p class="timeline-text">Completed an 115 hours course on Udemy Online Platform.</p>
-                                </div>
+                                </div> {% endcomment %}
                                 <div class="timeline-item">
                                     <div class="circle-dot"></div>
                                     <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2021 - 2022</h3>
                                     <h4 class="timeline-title">CS50 Harvard Course</h4>
                                     <p class="timeline-text">Completed the "CS50: Web Developing with Python and Javascript" Harvard online course.</p>
                                 </div>
-                                <div class="timeline-item">
+                                {% comment %} <div class="timeline-item">
                                     <div class="circle-dot"></div>
                                     <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023</h3>
                                     <h4 class="timeline-title">React.js and Next.js Course</h4>
                                     <p class="timeline-text">Completed an Udemy online course with 93hour grade about modern React with Next and Scrapi.</p>
+                                </div> {% endcomment %}
+                                <div class="timeline-item">
+                                    <div class="circle-dot"></div>
+                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023 - 2025</h3>
+                                    <h4 class="timeline-title">Associate in Systems Analysis and Development</h4>
+                                    <p class="timeline-text">Web Development focused course at Unipe University - Unipe</p>
                                 </div>
                                 <div class="timeline-item">
                                     <div class="circle-dot"></div>
                                     <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023 - 2027</h3>
-                                    <h4 class="timeline-title">Computer Science Majoring</h4>
-                                    <p class="timeline-text">At the moment, I`m styding Computer Science in the Federal University of Paraíba...</p>
+                                    <h4 class="timeline-title">Computer Science Majoring - UFPB</h4>
+                                    <p class="timeline-text">Delving in the Computer Science foundationals in the Federal University of Paraíba...</p>
                                 </div>
                             </div>
                         </div>
@@ -69,20 +121,51 @@
                             <div class="timeline shadow-dark">
                                 <div class="timeline-item">
                                     <div class="circle-dot"></div>
-                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2022</h3>
-                                    <h4 class="timeline-title">First Experience</h4>
-                                    <p class="timeline-text">Coded an email template for Metrike Company.</p>
+                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> set de 2022 - out de 2023</h3>
+                                    <h4 class="timeline-title">Fullstack Developer Internship - Metrike</h4>
+                                    <p class="timeline-text">
+                                        Development of internal use web applications using Django and React.
+                                    </p>
                                 </div>
+                                <div class="timeline-item">
+                                    <div class="circle-dot"></div>
+                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> out de 2023 - dez de 2023</h3>
+                                    <h4 class="timeline-title">Django Dev Internship - DeuCrédito</h4>
+                                    <p class="timeline-text">
+                                        New features implementation and bug fixes in the Fintech SaaS Platform, using Django, HTMX, Javascript, and PostgreSQL.
+                                    </p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="circle-dot"></div>
+                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> dez de 2023 - o momento</h3>
+                                    <h4 class="timeline-title">Junior Software Engineer</h4>
+                                    <p class="timeline-text">
+                                        - Development of daily workflow Data Processing ETL with Python and Apache Airflow<br><br>
+                                        - Implementation of an Email Sender API for dynamic xlsx report generation, delivering files with dozens of MB with efficiency and performance using Python, Django, Pandas, Celery, and Redis.<br><br>
+                                        - Implementation of concurrent web scrapers with Python for brand safety classification of millions of URLs per day.<br><br>
+                                        - Data processing and statistics for report generation.<br><br>
+                                        - Process Automation and Task Queue implementation.<br><br>
+                                        - Relational Database Modeling (MySQL).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% comment %} <div class="experience padd-15">
+                        <h3 class="title">Experience</h3>
+                        <div class="timeline-box padd-15">
+                            <div class="timeline shadow-dark">
                                 <div class="timeline-item">
                                     <div class="circle-dot"></div>
                                     <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2022</h4>
-                                    <h4 class="timeline-title">Second Experience</h4>
-                                    <p class="timeline-text">Coded a website for Metrike Company using the Python framework 'Django', JavaScript, Html, CSS and Bootstrap.</p>
+                                    <h4 class="timeline-title">Freelance</h4>
+                                    <p class="timeline-text">Coded the Metrike Company institutional website using the Python framework 'Django', JavaScript, Html, CSS and Bootstrap.</p>
                                 </div>
                                 <div class="timeline-item">
                                     <div class="circle-dot"></div>
-                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023</h3>
-                                    <h4 class="timeline-title">First Official Job</h4>
+                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023.1</h3>
+                                    <h4 class="timeline-title">Web Developer Trainee</h4>
                                     <p class="timeline-text">In February, started working at Metrike Company as a Web Developer and UX Supervisor trainee.</p>
                                 </div>
                                 <div class="timeline-item">
@@ -93,7 +176,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>
