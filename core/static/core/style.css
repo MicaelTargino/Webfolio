@@ -110,10 +110,10 @@ ul {
     display: none !important;
 }
 
-.section .container {
+/* .section .container {
     padding-top: 60px;
     padding-bottom: 70px;
-}
+} */
 .section-title {
     flex: 0 0 100%;
     max-width: 100%;
@@ -355,9 +355,11 @@ h3.my-profession {
 }
 
 /* about */
+
 .about {
-    padding-bottom: 150px;
+    padding-top: 120px;
 }
+
 .about .about-content {
     flex: 0 0 100%;
     max-width: 100%;
@@ -529,7 +531,7 @@ h3.my-profession {
 .about .about-content .timeline .timeline-text {
     line-height: 25px;
     font-size: 16px;
-    text-align: justify;   
+    text-align: left;   
     color: var(--text-black-700);
 }
 /* services */
@@ -589,6 +591,12 @@ h3.my-profession {
     line-height: 25px;
 }
 /* portfolio */
+
+.portfolio .row {
+    display:flex;
+    justify-content: center !important;
+}
+
 .portfolio .potfolio-heading{
     flex: 0 0 100%;
     max-width: 100%;
@@ -601,11 +609,12 @@ h3.my-profession {
 }
 .portfolio .container {
     padding-bottom: 40px;
+
 }
 .portfolio .portfolio-item {
-    flex: 0 0 30%;
+    flex: 0 0 40%;
     margin: 15px 15px;
-    max-width: 30%;
+    max-width: 40%;
     margin-bottom: 30px;
     transition: all .3s;
 }
