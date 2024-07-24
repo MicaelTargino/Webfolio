@@ -10,24 +10,6 @@
             <div class="about-content padd-15">
                 <div class="row">
                     <div class="about-text padd-15">
-                        <style>
-                            .about-text strong {
-                                color: var(--skin-color); opacity: 1; font-weight:900;
-                            }
-                            .about-content .row>h2 {
-                                color:var(--text-black-900);
-                            }
-                            .about-content .skills {
-                                width: 100vw !important;
-                                max-width: 100% !important;
-                            }
-                            .about-content .skills li {
-                                color:var(--text-black-900);
-                            }
-                            .about-content .skills li strong {
-                                color: var(--skin-color); opacity: 1; font-weight:900;
-                            }
-                        </style>
                         <h3>I'm a <span>Web Developer</span> since 2020</h3>
                         <p>
                             I am a <strong>compromised Software Engineer</strong> engaged to deliver innovative solutions. 
@@ -46,7 +28,7 @@
                         </p>
                     </div>
                 </div>
-                <div class='row'>
+                <div class='row skills'>
                     <h2>Main Skills:</h2>
                     <ul class="skills" >
                         <li><strong>Backend:</strong> Python, Pandas, SQLAlchemy, FastAPI, Flask, Django/DRF, Apache Airflow</li>
@@ -57,9 +39,8 @@
                         <li><strong>Future Goals:</strong> Learning Go, Angular, MongoDB, Kubernetes and AWS</li>
                     </ul>
                 </div>
-                <div class="row">
+                {% comment %} <div class="row">
                     <div class="personal-info padd-15">
-                        {% comment %} <div class="row"> {% endcomment %}
                             <div class="info-item padd-15">
                                 <p>Degree: <span>CS Undergraduate</span></p>
                             </div>
@@ -69,37 +50,24 @@
                             <div class="info-item padd-15">
                                 <p>Age: <span>19</span></p>
                             </div>
-                        {% comment %} </div> {% endcomment %}
                         <div class="row">
                             <div class="buttons padd-15">
                                 <a href="{% static 'core/cv/CV.pdf' %}" download="CV_Micael_Targino.pdf" class="btnn">Download CV</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
+                </div> {% endcomment %}
+                {% comment %} <div class="row">
                     <div class="education padd-15">
                         <h3 class="title">Education</h3>
                         <div class="timeline-box padd-15">
                             <div class="timeline shadow-dark"  >
-                                {% comment %} <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2020 - 2021</h3>
-                                    <h4 class="timeline-title">Web Development Course</h4>
-                                    <p class="timeline-text">Completed an 115 hours course on Udemy Online Platform.</p>
-                                </div> {% endcomment %}
                                 <div class="timeline-item">
                                     <div class="circle-dot"></div>
                                     <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2021 - 2022</h3>
                                     <h4 class="timeline-title">CS50 Harvard Course</h4>
                                     <p class="timeline-text">Completed the "CS50: Web Developing with Python and Javascript" Harvard online course.</p>
                                 </div>
-                                {% comment %} <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023</h3>
-                                    <h4 class="timeline-title">React.js and Next.js Course</h4>
-                                    <p class="timeline-text">Completed an Udemy online course with 93hour grade about modern React with Next and Scrapi.</p>
-                                </div> {% endcomment %}
                                 <div class="timeline-item">
                                     <div class="circle-dot"></div>
                                     <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023 - 2025</h3>
@@ -168,7 +136,7 @@
                         </div>
                     </div>
                     
-                    {% comment %} <div class="experience padd-15">
+                    <div class="experience padd-15">
                         <h3 class="title">Experience</h3>
                         <div class="timeline-box padd-15">
                             <div class="timeline shadow-dark">
@@ -192,8 +160,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div> {% endcomment %}
-                </div>
+                    </div> 
+                </div> {% endcomment %}
             </div>
         </div>
     </div>
