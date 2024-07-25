@@ -1,3 +1,26 @@
+const svgTemplate2 = `
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M7 8L3 12L7 16" stroke="{color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 8L21 12L17 16" stroke="{color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 4L9.8589 19.4548" stroke="{color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
+function setFavicon() {
+    const skinColor = getComputedStyle(document.documentElement).getPropertyValue('--skin-color').trim();
+    const svgContent = svgTemplate2.replace(/{color}/g, skinColor);
+    const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.href = url;
+    link.type = 'image/svg+xml';
+
+    const existingIcons = document.querySelectorAll('link[rel="icon"]');
+    existingIcons.forEach(icon => icon.parentNode.removeChild(icon));
+
+    document.head.appendChild(link);
+}
+
 // toggle style switcher 
 const styleSwitcherToggle = document.querySelector('.style-switcher-toggler');
 styleSwitcherToggle.addEventListener('click', () => {
@@ -21,6 +44,7 @@ function setActiveStyle(color) {
             style.setAttribute('disabled', 'true');
         }
     })
+    setFavicon();
 }
 
 // day-night 

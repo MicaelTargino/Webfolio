@@ -17,8 +17,25 @@
                 <h3 class="my-profession">
                     I'm a <span class="typing"></span>
                 </h3>
-                <p>Blending technology and creativity.</p>
-                <a href="#portfolio" class="btnn hire-me">See More</a>
+                <p>Blending technology and creativity. 
+
+                    <section class="hero-contact">
+                        <div class="icon"><a target="_blank" href="https://github.com/MicaelTargino">
+                            <i class="fa-brands fa fa-github"></i>
+                        </a></div>
+                        <div class="icon"><a target="_blank" href="https://www.linkedin.com/in/micaeltargino/"><i class="fa-brands fa fa-linkedin"></i></a></div>
+                    </section>
+                </p>
+                <a href="#portfolio" class="btnn hire-me">
+                <span>Projects</span> 
+                </a>
+
+                <a href="{% static 'core/cv/CV.pdf' %}" download="CV_Micael_Targino.pdf" class="btnn btn-download-cv" style="margin-bottom: 16px">
+                     <i class="fa-solid fa-download"></i> Download CV
+                </a>
+
+
+
             </div>
             <div class="home-img padd-15">
                 <img src="{% static 'core/imgs/myself.png'%}" alt="" />

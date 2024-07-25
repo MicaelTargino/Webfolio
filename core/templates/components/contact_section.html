@@ -13,18 +13,96 @@
             <div class="contact-info-item padd-15">
                 <div class="icon"><i class="fa-brands fa fa-linkedin"></i></div>
                 <h4>Linkedin</h4>
-                <a href="https://www.linkedin.com/in/micaeltargino/">Micael Targino</a>
+                <a target="_blank" href="https://www.linkedin.com/in/micaeltargino/">Micael Targino</a>
             </div>
             <div class="contact-info-item padd-15">
                 <div class="icon"><i class="fa-brands fa fa-github"></i></div>
                 <h4>Github</h4>
-                <a href="https://github.com/MicaelTargino">MicaelTargino</a>
+                <a target="_blank" href="https://github.com/MicaelTargino">MicaelTargino</a>
             </div>
             <div class="contact-info-item padd-15">
                 <div class="icon"><i class="fa fa-envelope"></i></div>
                 <h4>Email</h4>
-                <a href="mailto:micaelgomestargino@gmail.com?subject=Quero Te Contratar">micaelgomestargino@gmail.com</a>
+                <a target="_blank" href="mailto:micaelgomestargino@gmail.com?subject=Quero Te Contratar">micaelgomestargino@gmail.com</a>
             </div>
         </div>
     </div>
+
+    <h3 class="contact-title" style="margin-top: 50px;">SEND ME AN EMAIL</h3>
+    <h4 class="contact-sub-title">I'M VERY RESPONSIVE TO MESSAGES</h4>
+    <!-- contact form -->
+
+    <div class="row">
+      <form
+        class="contact-form padd-15"
+        action="https://formsubmit.co/micaelgomestargino@gmail.com"
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="_next"
+          value="http://localhost:5500/sentEmail.html"
+        />
+        <div class="row">
+          <div class="form-item col-6 padd-15">
+            <div class="form-group">
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="name"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-item col-6 padd-15">
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="email"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-item col-12 padd-15">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="subject"
+                placeholder="Subject"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-item col-12 padd-15">
+            <div class="form-group">
+              <textarea
+                name="message"
+                class="form-control"
+                id=""
+                placeholder="Message"
+                required
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-item col-12 padd-15">
+            <div class="form-group" style="display: flex">
+              <button type="submit" class="btnn" style="margin: 0 auto">
+                Send Message
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
 </section>
+
