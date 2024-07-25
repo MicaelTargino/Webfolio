@@ -580,6 +580,54 @@ h3.my-profession {
 .about-content .skills li strong {
     color: var(--skin-color); opacity: 1; font-weight:900;
 }
+
+.skills-topic {
+    width:90% !important;
+    box-shadow: 0px 0px 16px var(--text-black-900);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 32px;
+
+}
+.skills-topic h3{
+    color:  var(--skin-color);
+    font-family: 'Orbitron', sans-serif; 
+
+}
+.skills-list {
+    width: 100%;
+    display:flex; 
+    align-items: center;
+    justify-content: start;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.skills-list .img-wrapper {
+    background-color:white;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    flex-direction: column;
+}
+
+.skills-list .skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;   
+    transition: all .2s;
+}
+.skills-list .skill-item:hover {
+    transform:scale(1.05)
+}
+.skills-list .skill-item small {
+    color: var(--text-black-900);
+    font-size: 20px;
+}
 /* services */
 .service .container {
     padding-bottom:40px;
