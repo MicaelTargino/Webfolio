@@ -17,7 +17,7 @@ class User(models.Model):
     def __str__(self):
         return self.name
     
-class Contact(models.Model):
+class ContactItem(models.Model):
     name = models.CharField(max_length=255)
     link = models.CharField(max_length=255, null=True, blank=True)
     logo_file = models.ImageField(upload_to='static/core/contactlogos/', null=True, blank=True)
@@ -32,7 +32,7 @@ class Hero(models.Model):
     # labels = models.JSONField(validators=[validate_labels], default=['Programmer'])
     labels = models.CharField(max_length=255, default='Programmer')
     slogan = models.CharField(max_length=512, null=False, blank=False)
-    contacts = models.ManyToManyField(Contact, blank=True)
+    contacts = models.ManyToManyField(ContactItem, blank=True)
     cv = models.ImageField(upload_to='static/core/cv/')
     link_to_section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='professionals')
     image = models.ImageField(upload_to='static/core/me/', blank=True, null=True)
@@ -56,20 +56,20 @@ class Hero(models.Model):
             img.save(self.image.path)
     
 
-class Style(models.Model):
-    name = models.CharField(max_length=100)
-    primary_color = models.CharField(max_length=8, null=True, blank=True)
-    # custom_css = models.TextField(null=True, blank=True)
-    secondary_color = models.CharField(max_length=8, null=True, blank=True)
-    terciary_color = models.CharField(max_length=8, null=True, blank=True)
-    dark_mode = models.BooleanField(default=True)
-    white = models.CharField(max_length=8, null=True, blank=True, default="#fff")
-    logo = models.FileField(null=True, blank=True)
-    favicon = models.FileField(null=True, blank=True)
-    hero_image = models.FileField(null=True, blank=True)
+# class Style(models.Model):
+#     name = models.CharField(max_length=100)
+#     primary_color = models.CharField(max_length=8, null=True, blank=True)
+#     # custom_css = models.TextField(null=True, blank=True)
+#     secondary_color = models.CharField(max_length=8, null=True, blank=True)
+#     terciary_color = models.CharField(max_length=8, null=True, blank=True)
+#     dark_mode = models.BooleanField(default=True)
+#     white = models.CharField(max_length=8, null=True, blank=True, default="#fff")
+#     logo = models.FileField(null=True, blank=True)
+#     favicon = models.FileField(null=True, blank=True)
+#     hero_image = models.FileField(null=True, blank=True)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
     
 # class CV():
 #     title = models.CharField(max_length=255)
