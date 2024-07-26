@@ -1,9 +1,7 @@
 from PIL import Image
 from django.db import models
 from django.core.exceptions import ValidationError
-# def validate_labels(value):
-#     if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
-#         raise ValidationError('Labels must be a list of strings.')
+
     
 class Section(models.Model):
     title = models.CharField(max_length=100)
@@ -19,11 +17,28 @@ class User(models.Model):
     
 class ContactItem(models.Model):
     name = models.CharField(max_length=255)
+    username = models.CharField(max_length=255, null=False, blank=False, default="username")
     link = models.CharField(max_length=255, null=True, blank=True)
     logo_file = models.ImageField(upload_to='static/core/contactlogos/', null=True, blank=True)
     logo_url = models.URLField(max_length=1024, null=True, blank=True)
     def __str__(self):
         return self.name
+    
+class Contact(models.Model):
+    section = models.OneToOneField(Section, on_delete=models.CASCADE, primary_key=True)
+    title1 = models.CharField(max_length=255, null=True, blank=True)
+    subtitle1 = models.CharField(max_length=255, null=True, blank=True)
+    title2 = models.CharField(max_length=255, null=True, blank=True)
+    subtitle2 = models.CharField(max_length=255, null=True, blank=True)
+    contacts = models.ManyToManyField(ContactItem, blank=True)
+
+    def __str__(self):
+        return self.section.title
+
+    
+# def validate_labels(value):
+#     if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
+#         raise ValidationError('Labels must be a list of strings.')
     
 class Hero(models.Model):
     section = models.OneToOneField(Section, on_delete=models.CASCADE, primary_key=True)

@@ -1,4 +1,5 @@
 {% load static %}
+{% load known_icons %}
 
 <section id="contact" class="contact section" style="padding-bottom: 150px;">
     <div class="container">
@@ -7,29 +8,32 @@
                 <h2>Contact Me</h2>
             </div>
         </div>
-        <h3 class="contact-title">Have you any questions ?</h3>
-        <h4 class="contact-sub-title">I'M AT YOUR SERVICES</h4>
+        <h3 class="contact-title">{{sections.contact.title1}}</h3>
+        <h4 class="contact-sub-title">{{sections.contact.subtitle1}}</h4>
         <div class="row">
-            <div class="contact-info-item padd-15">
-                <div class="icon"><i class="fa-brands fa fa-linkedin"></i></div>
-                <h4>Linkedin</h4>
-                <a target="_blank" href="https://www.linkedin.com/in/micaeltargino/">Micael Targino</a>
+          {% for item in sections.contact.contacts.all %}
+                <div class="contact-info-item padd-15">
+                  <div class="icon">
+                    {% if item.logo_file %}
+                            <img width="26" height="26" src="{{item.logo_file.url }}"></img>
+                    {% elif item.logo_url %}
+                            <img width="26" height="26" src="{{item.logo_url }}"></img>
+                    {% elif item.name in known_icons %}
+                            <i class="{{ known_icons|get_icon:item.name }}"></i>
+                    {% else %}
+                            <i class="fa-brands fa fa-{{item.name|lower}}"></i>
+                    {% endif %}
+                  </div>
+                  <h4>{{item.name}}</h4>
+                  <a target="_blank" href="{{item.link}}">{{item.username}}</a>
             </div>
-            <div class="contact-info-item padd-15">
-                <div class="icon"><i class="fa-brands fa fa-github"></i></div>
-                <h4>Github</h4>
-                <a target="_blank" href="https://github.com/MicaelTargino">MicaelTargino</a>
-            </div>
-            <div class="contact-info-item padd-15">
-                <div class="icon"><i class="fa fa-envelope"></i></div>
-                <h4>Email</h4>
-                <a target="_blank" href="mailto:micaelgomestargino@gmail.com?subject=Quero Te Contratar">micaelgomestargino@gmail.com</a>
-            </div>
+          
+          {% endfor %}
         </div>
     </div>
 
-    <h3 class="contact-title" style="margin-top: 50px;">SEND ME AN EMAIL</h3>
-    <h4 class="contact-sub-title">I'M VERY RESPONSIVE TO MESSAGES</h4>
+    <h3 class="contact-title" style="margin-top: 50px;">{{sections.contact.title2}}</h3>
+    <h4 class="contact-sub-title">{{sections.contact.subtitle2}}</h4>
     <!-- contact form -->
 
     <div class="row">
