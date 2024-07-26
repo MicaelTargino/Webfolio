@@ -1,38 +1,31 @@
-// typing animation
-var typed = new Typed('.typing', {
-    strings: ['Software Engineer', 'Web developer', 'Data Engineer'],
-    typeSpeed: 100,
-    backSpeed: 60,
-    loop: true
-});
 
 var links = $('.nav a.link');
 //percorre todos os links contidos em nav
 for (i=0;i<links.length;i++) {
-    const btn = links[i];
-    //quando um botão é clicado, essa função é chamada
-    btn.addEventListener('click', (e) => {
-        //percorre novamente cada nav link, removendo todas as classes active
-        for (p=0;p<5;p++) {
-            if (links[p].classList.contains('active')) {
-                links[p].classList.remove('active')
-            }
-        };
-        //por fim, adiciona a classe 'active' no link clicado
-        e.target.classList.add('active');
-        
-    });
-    //dentro do for mas fora do onclick, esta seção é responsável pelos eventListeners de mouseover e mouseout. quando um botão não tem a classe de ativo, ele está apto para ser manipulado pelo mouseover ou pelo mouseout.
-    // if (btn.classList.contains('active') == false) {
-        //no mouseover, adiciona uma outra class visando não retirar a classe de um botão que já esteja ativo.
-        btn.addEventListener('mouseover', (e) => {
-            e.target.classList.add('temporal-active');
-        });
-        //no mouseout, adiciona uma outra class visando não retirar a classe de um botão que já esteja ativo.
-        btn.addEventListener('mouseout', (e) => {
-            e.target.classList.remove('temporal-active');
-        });
-    // }
+  const btn = links[i];
+  //quando um botão é clicado, essa função é chamada
+  btn.addEventListener('click', (e) => {
+      //percorre novamente cada nav link, removendo todas as classes active
+      for (p=0;p<5;p++) {
+          if (links[p].classList.contains('active')) {
+              links[p].classList.remove('active')
+          }
+      };
+      //por fim, adiciona a classe 'active' no link clicado
+      e.target.classList.add('active');
+      
+  });
+  //dentro do for mas fora do onclick, esta seção é responsável pelos eventListeners de mouseover e mouseout. quando um botão não tem a classe de ativo, ele está apto para ser manipulado pelo mouseover ou pelo mouseout.
+  // if (btn.classList.contains('active') == false) {
+      //no mouseover, adiciona uma outra class visando não retirar a classe de um botão que já esteja ativo.
+      btn.addEventListener('mouseover', (e) => {
+          e.target.classList.add('temporal-active');
+      });
+      //no mouseout, adiciona uma outra class visando não retirar a classe de um botão que já esteja ativo.
+      btn.addEventListener('mouseout', (e) => {
+          e.target.classList.remove('temporal-active');
+      });
+  // }
 };
 
 function goToTop() {

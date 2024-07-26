@@ -1,0 +1,46 @@
+{% load static %}
+
+<section id="home" class="home section">
+    <div class="container">
+        <div class="row">
+            <div class="mobile-img">
+                <img src="{% static 'core/imgs/myself.png'%}" alt="" />
+            </div>
+            <div class="home-info padd-15">
+                <h3 class="hello">
+                    Hello, I am
+                    <span style=" font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 35px;">
+                        {{sections.hero.name}}
+                    </span>
+                </h3>
+                <h3 class="my-profession">
+                    I'm a <span class="typing"></span>
+                </h3>
+                <p>
+                    {{sections.hero.slogan}} 
+                    <section class="hero-contact">
+                        {% for icon in sections.hero.contacts.all %}
+                        <div class="icon">
+                            <a target="_blank" href="{{icon.link}}">
+                                <i class="fa-brands fa fa-{{icon.name|lower}}"></i>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </section>
+                </p>
+                <a href="#{{sections.hero.link_to_section.title|lower}}" class="btnn hire-me">
+                <span>{{sections.hero.link_to_section.title}}</span> 
+                </a>
+                <a href="{{ sections.hero.cv.url }}" download="CV_{{sections.hero.name}}.pdf" class="btnn btn-download-cv" style="margin-bottom: 16px">
+                     <i class="fa-solid fa-download"></i> Download CV
+                </a>
+
+
+
+            </div>
+            <div class="home-img padd-15">
+                <img src="{{sections.hero.image.url}}" alt="" />
+            </div>
+        </div>
+    </div>
+</section>

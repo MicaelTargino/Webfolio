@@ -162,5 +162,15 @@
     ></script>
     <script src="{% static 'core/style_switcher/style-switcher.js' %}"></script>
     <script src="{% static 'core/script.js' %}"></script>
+    <script>
+      // typing animation
+      var labels = "{{sections.hero.labels}}".split(',');
+      var typed = new Typed('.typing', {
+        strings: labels,
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+      });
+</script>
 </body>
 </html>
