@@ -44,7 +44,9 @@ function setActiveStyle(color) {
             style.setAttribute('disabled', 'true');
         }
     })
-    setFavicon();
+    setTimeout(() => {
+        setFavicon();
+    }, 500)
 }
 
 // day-night 

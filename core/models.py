@@ -1,6 +1,6 @@
+from PIL import Image
 from django.db import models
 from django.core.exceptions import ValidationError
-
 # def validate_labels(value):
 #     if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
 #         raise ValidationError('Labels must be a list of strings.')
@@ -20,7 +20,8 @@ class User(models.Model):
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     link = models.CharField(max_length=255, null=True, blank=True)
-
+    logo_file = models.ImageField(upload_to='static/core/contactlogos/', null=True, blank=True)
+    logo_url = models.URLField(max_length=1024, null=True, blank=True)
     def __str__(self):
         return self.name
     
@@ -38,6 +39,21 @@ class Hero(models.Model):
 
     def __str__(self):
         return self.section.title
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+    
+
+        img = Image.open(self.image.path)
+
+        max_width = 330
+        max_height = 400
+
+        if img.height > max_height or img.width > max_width:
+            print('resizing image')
+            output_size = (max_width, max_height)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
     
 
 class Style(models.Model):

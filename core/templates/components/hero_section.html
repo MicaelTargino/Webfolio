@@ -18,13 +18,27 @@
                 </h3>
                 <p>
                     {{sections.hero.slogan}} 
-                    <section class="hero-contact">
+                    <section class="hero-contact" style="display: flex; align-items: center; gap:6px;">
                         {% for icon in sections.hero.contacts.all %}
-                        <div class="icon">
-                            <a target="_blank" href="{{icon.link}}">
-                                <i class="fa-brands fa fa-{{icon.name|lower}}"></i>
-                            </a>
-                        </div>
+                            {% if icon.logo_file %}
+                                <div class="icon">
+                                    <a target="_blank" href="{{icon.link}}">
+                                        <img width="26" height="26" src="{{icon.logo_file.url }}"></img>
+                                    </a>
+                                </div>  
+                                {% elif icon.logo_url %}
+                                <div class="icon">
+                                    <a target="_blank" href="{{icon.link}}">
+                                        <img width="26" height="26" src="{{icon.logo_url }}"></img>
+                                    </a>
+                                </div>  
+                            {% else %}
+                            <div class="icon">
+                                <a target="_blank" href="{{icon.link}}">
+                                    <i class="fa-brands fa fa-{{icon.name|lower}}"></i>
+                                </a>
+                            </div>
+                            {% endif %}
                         {% endfor %}
                     </section>
                 </p>
@@ -38,6 +52,18 @@
 
 
             </div>
+             <style>
+                .home-img {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .home-img img {
+                    width: 80%;
+                    object-fit: contain;
+                }
+            </style> 
             <div class="home-img padd-15">
                 <img src="{{sections.hero.image.url}}" alt="" />
             </div>
