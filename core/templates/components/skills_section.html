@@ -8,7 +8,22 @@
             </div>
         </div>
         <div class="row" style="display:flex; flex-direction:column; align-items:center;">
+            {% for topic in sections.skills.topics.all %}
             <div class="skills-topic">
+                <h3>{{ topic.title }}</h3>
+                <div class="skills-list">
+                    {% for skill_item in topic.skills_items.all %}
+                    <span class="skill-item">
+                        <span class="img-wrapper">
+                            <img style="object-fit: contain; max-width: 80% !important;" src="{{skill_item.image.url}}">
+                        </span>
+                        <small>{{ skill_item.name }}</small>
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+            {% comment %} <div class="skills-topic">
                 <h3>Backend and Data Processing</h3>
                 <div class="skills-list">
                     <span class="skill-item">
@@ -252,7 +267,7 @@
                         <small>AWS</small>
                     </span>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
 </section>

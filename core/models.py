@@ -98,6 +98,27 @@ class Hero(models.Model):
 #     def __str__(self):
 #         return self.title
 
+class SkillItem(models.Model):
+    name = models.CharField(max_length=16, null=True, blank=True)
+    image = models.FileField(upload_to='static/core/skills')
+
+    def __str__(self):
+        return self.name
+
+class SkillsTopic(models.Model):
+    title = models.CharField(max_length=99, null=False, blank=False)
+    skills_items = models.ManyToManyField(SkillItem, null=False, blank=False) 
+
+    def __str__(self):
+        return self.title   
+
+class Skills(models.Model):
+    section = models.OneToOneField(Section, on_delete=models.CASCADE, primary_key=True)
+    topics = models.ManyToManyField(SkillsTopic, blank=False)
+
+    def __str__(self):
+        return self.section.title
+
 class PortfolioItem(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=96)
