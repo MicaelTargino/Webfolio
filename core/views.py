@@ -1,14 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Hero, Contact
+from .models import Hero, Contact, Portfolio
 # Create your views here.
 def home(request):
     hero = Hero.objects.all().first()
     contact = Contact.objects.all().first()
+    portfolio = Portfolio.objects.all().first()
     return render(request, 'home.html', {
         'sections': {
     	    'hero': hero,
-            'contact': contact
+            'contact': contact,
+            'portfolio': portfolio
         },
         'known_icons': {
             'Email': 'fa fa-envelope',

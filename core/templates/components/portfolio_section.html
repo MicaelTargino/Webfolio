@@ -10,20 +10,24 @@
         <div class="row">
             <div class="row">
                 <section class="portfolio-content">
-             
+                {% for item in sections.portfolio.projects.all %}
                 <div class="portfolio-item">
                     <div class="portfolio-item-inner">
                         <div class="porfolio-img">
                             {% comment %} <img src="{% static 'core/imgs/projects/2.png' %}" alt="" /> {% endcomment %}
                             <div class="img-container">
-                                <img src="{% static 'core/imgs/projects/3.png' %}" alt="Avatar" class="image">
+                                <img src="{{item.image.url}}" alt="Avatar" class="image">
                                 <div class="overlay">
                                   <div class="overlay-content">
-                                    <h4><b>Finance</b></h4>
-                                    <p>Html, Css, Bootstrap</p>
+                                    <h4><b>{{ item.title }}</b></h4>
+                                    <p style="overflow-wrap: anywhere; width: 100% !important; ">{{item.description}}</p>
                                     <span>
-                                        <button><a href="" target="_blank">See demo</a></button>
-                                        <button><a href="" target="_blank">Github</a></button>
+                                        {% if item.demo_link %}
+                                        <button><a href="{{item.demo_link}}" target="_blank">See demo</a></button>
+                                        {% endif %}
+                                        {% if item.repo_link %}
+                                        <button><a href="{{item.repo_link}}" target="_blank">Github</a></button>
+                                        {% endif %}
                                     </span>
                                   </div>
                                 </div>
@@ -31,26 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-item-inner">
-                        <div class="porfolio-img">
-                            {% comment %} <img src="{% static 'core/imgs/projects/2.png' %}" alt="" /> {% endcomment %}
-                            <div class="img-container">
-                                <img src="{% static 'core/imgs/projects/2.png' %}" alt="Avatar" class="image">
-                                <div class="overlay">
-                                  <div class="overlay-content">
-                                    <h4><b>Spotify clone</b></h4>
-                                    <p>Python, Django, DRF, SQLAlchemy HTMX, PostgreSQL</p>
-                                    <span>
-                                        <button><a href="" target="_blank">See demo</a></button>
-                                        <button><a href="" target="_blank">Github</a></button>
-                                    </span>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </section>
 
             </div>
