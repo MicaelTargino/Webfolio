@@ -1,11 +1,23 @@
 {% load static %}
 
+{% comment %} <style>
+    .dynamic-text {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 80%;
+        font-size: auto; /* Default font size */
+    }
+</style> {% endcomment %}
+
 <div class="aside">
     <div class="logo">
         {% comment %} <a href="#"><span>M</span>icael</a> {% endcomment %}
         <a href="#"> 
-            <span style="font-size:32px;">Micael</span>
-            </a>
+            {% comment %} <span class="dynamic-text">{{ sections.aside.name }}</span> {% endcomment %}
+            <span style="font-size:32px;">{{ sections.aside.name }}</span>
+        </a>
         {% comment %} <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
             <g id="SVGRepo_bgCarrier" stroke-width="0"/>
@@ -22,11 +34,19 @@
         <span></span>
     </div>
     <ul class="nav">
-        <li><a href="#home" class="homeLink link active"><i class="fa fa-home" translate="no"></i> Home</a></li>
-        <li><a href="#projects" class="portfolioLink link"><i class="fa fa-briefcase"></i>Projects</a></li>
+        {% for item in sections.aside.links.all %}
+            {% if item.name|lower == 'home' %}
+                <li><a href="#home" class="homeLink link active"><i class="fa fa-home" translate="no"></i> Home</a></li>
+            {% elif item.name|lower == 'projects' %}
+                <li><a href="#projects" class="portfolioLink link"><i class="fa fa-briefcase"></i>Projects</a></li>
+            {% elif item.name|lower == 'about' %}
+    	            <li><a href="#about" class="aboutLink link"><i class="fa fa-user"></i> About</a></li>
+            {% elif item.name|lower == 'skills' %}
+                <li><a href="#skills" class="aboutLink link"><i class="fa fa-code"></i> Skills</a></li>
+            {% elif item.name|lower == 'contact' %}
+                <li><a href="#contact" class="contactBtnLink link"><i class="fa fa-comments"></i> Contact</a></li>
+            {% endif %}
+            {% endfor %}
         {% comment %} <li><a href="#service" class="servicesLink link"><i class="fa fa-list"></i> Services</a></li> {% endcomment %}
-        <li><a href="#about" class="aboutLink link"><i class="fa fa-user"></i> About</a></li>
-        <li><a href="#skills" class="aboutLink link"><i class="fa fa-code"></i> Skills</a></li>
-        <li><a href="#contact" class="contactBtnLink link"><i class="fa fa-comments"></i> Contact</a></li>
     </ul>
 </div>

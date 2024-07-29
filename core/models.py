@@ -55,7 +55,7 @@ class Hero(models.Model):
     labels = models.CharField(max_length=255, default='Programmer')
     slogan = models.CharField(max_length=512, null=False, blank=False)
     contacts = models.ManyToManyField(ContactItem, blank=True)
-    link_to_section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='professionals')
+    link_to_section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name="hero_link_to_section")
     cv = models.ForeignKey(CV, on_delete=models.SET_NULL, null=True, blank=True)
     image = models.ImageField(upload_to='static/core/me/', blank=True, null=True)
 
@@ -76,6 +76,21 @@ class Hero(models.Model):
             output_size = (max_width, max_height)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+class AsideLink(models.Model):
+    name = models.CharField(max_length=99, default="<LINK NAME HERE>")
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name="aside_link_to_section")
+
+    def __str__(self): 
+        return self.section.title
+
+class Aside(models.Model):
+    section = models.OneToOneField(Section, on_delete=models.CASCADE, primary_key=True)
+    name = models.CharField(max_length=6, null=True, blank=True)
+    links = models.ManyToManyField(AsideLink, blank=True)
+
+    def __str__(self):
+        return self.section.title
     
 
 # class Style(models.Model):
