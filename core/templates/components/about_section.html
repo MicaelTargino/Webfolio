@@ -38,7 +38,7 @@ im{% load static %}
                         </p>
                     </div>
                 </div>
-                <a href="{% static 'core/cv/CV.pdf' %}" download="CV_Micael_Targino.pdf" class="btnn btn-download-cv" style="margin-bottom: 16px">
+                <a href="{{sections.about.cv.url}}" download="CV_Micael_Targino.pdf" class="btnn btn-download-cv" style="margin-bottom: 16px">
                     <i class="fa-solid fa-download"></i> Download CV
                 </a>
                 {% comment %} <div class='row skills'>

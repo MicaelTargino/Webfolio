@@ -36,15 +36,16 @@ class Contact(models.Model):
         return self.section.title
 
     
-# def validate_labels(value):
-#     if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
-#         raise ValidationError('Labels must be a list of strings.')
 
 class CV(models.Model):
     cv = models.ImageField(upload_to='static/core/cv/')
 
     def __str__(self):
         return self.cv.name
+    
+# def validate_labels(value):
+#     if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
+#         raise ValidationError('Labels must be a list of strings.')
     
 class Hero(models.Model):
     section = models.OneToOneField(Section, on_delete=models.CASCADE, primary_key=True)
