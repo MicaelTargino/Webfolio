@@ -39,6 +39,12 @@ class Contact(models.Model):
 # def validate_labels(value):
 #     if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
 #         raise ValidationError('Labels must be a list of strings.')
+
+class CV(models.Model):
+    cv = models.ImageField(upload_to='static/core/cv/')
+
+    def __str__(self):
+        return self.cv.name
     
 class Hero(models.Model):
     section = models.OneToOneField(Section, on_delete=models.CASCADE, primary_key=True)
@@ -48,8 +54,8 @@ class Hero(models.Model):
     labels = models.CharField(max_length=255, default='Programmer')
     slogan = models.CharField(max_length=512, null=False, blank=False)
     contacts = models.ManyToManyField(ContactItem, blank=True)
-    cv = models.ImageField(upload_to='static/core/cv/')
     link_to_section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='professionals')
+    cv = models.ForeignKey(CV, on_delete=models.SET_NULL, null=True, blank=True)
     image = models.ImageField(upload_to='static/core/me/', blank=True, null=True)
 
     def __str__(self):
@@ -91,12 +97,14 @@ class Hero(models.Model):
 #     image = models.ImageField(upload_to='CV/')
 
 
-# class About(models.Model):
-#     title = models.CharField(max_length=200)
-#     content = models.TextField()
+class About(models.Model):
+    section = models.OneToOneField(Section, on_delete=models.CASCADE, primary_key=True)
+    title = models.CharField(max_length=99, null=True, blank=True)
+    content = models.TextField()
+    cv = models.ForeignKey(CV, on_delete=models.SET_NULL, null=True, blank=True)
 
-#     def __str__(self):
-#         return self.title
+    def __str__(self):
+        return self.section.title
 
 class SkillItem(models.Model):
     name = models.CharField(max_length=16, null=True, blank=True)

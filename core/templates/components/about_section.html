@@ -10,13 +10,17 @@ im{% load static %}
             <div class="about-content padd-15">
                 <div class="row">
                     <div class="about-text padd-15">
-                        <h3>I'm a <span>Web Developer</span> since 2020</h3>
+                        <h3>
+                            {% comment %} I'm a <span>Web Developer</span> since 2020 {% endcomment %}
+                            {{ sections.about.title | safe }}
+                        </h3>
                         <p>
-                            <strong>compromised Software Engineer</strong> engaged to deliver innovative and godd quality solutions. 
 
-                            {% comment %} <br><br> {% endcomment %}
+                            {{ sections.about.content | safe }}
+
+                            {% comment %} <strong>compromised Software Engineer</strong> engaged to deliver innovative and godd quality solutions. 
+
                             <br><br>
-                            {% comment %} My tech journey began creating a simple website that ignited my programming passion. This led me to a Computer Science course at <strong>Harvard</strong>, providing a robust foundation in <strong>web development</strong> and <strong>programming</strong>. {% endcomment %}
                             Currently, as a <strong>Software Engineer at Metrike</strong>, 
                             with a focus on <strong>Data Engineering and Backend</strong>, 
                             I'm focused on developing Data Processing ETL's for AdTech industry.
@@ -29,7 +33,7 @@ im{% load static %}
                             
                             dedicated to <strong>continuous learning</strong> and committed to becoming a <strong>versatile programmer</strong>, ready to tackle diverse challenges in the ever-evolving tech landscape.
                             
-                            <br><br>
+                            <br><br> {% endcomment %}
                             
                         </p>
                     </div>
