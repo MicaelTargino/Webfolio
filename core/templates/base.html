@@ -91,7 +91,7 @@
 
         <link rel="stylesheet" href="{% static 'core/style_switcher/style-switcher.css'%}" />
 </head>
-<body class="dark">
+<body class="{{style.dark_or_light}}">
     <!-- main container start -->
     <div class="main-container">
         {% include 'components/aside_section.html' %}

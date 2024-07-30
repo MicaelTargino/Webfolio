@@ -10,6 +10,8 @@ def home(request):
     about = About.objects.all().first()
     aside = Aside.objects.all().first()
     theme_colors = ThemeColors.objects.first()
+    dark_or_light = 'dark' if theme_colors.dark_mode else 'light'
+    print(dark_or_light)
     return render(request, 'home.html', {
         'sections': {
     	    'hero': hero,
@@ -18,7 +20,10 @@ def home(request):
             'skills': skills,
             'about': about,
             'aside': aside,
-            'theme_colors': theme_colors
+            'theme_colors': theme_colors,
+        },
+        'style': {
+            'dark_or_light': dark_or_light
         },
         'known_icons': {
             'Email': 'fa fa-envelope',

@@ -3,10 +3,11 @@
     <div class="style-switcher-toggler s-icon">
         <i class="fas fa-cog fa-spin"></i>
     </div>
-    
+    {% if sections.theme_colors.dark_mode and sections.theme_colors.light_mode %}
     <div class="day-night s-icon">
         <i class="fas"></i>
     </div>
+    {% endif %}
     <h4>Theme Colors</h4>
     <style>
         .style-switcher .color-1 {
