@@ -1,7 +1,7 @@
 from PIL import Image
 from django.db import models
 from django.core.exceptions import ValidationError
-
+from colorfield.fields import ColorField
     
 class Section(models.Model):
     title = models.CharField(max_length=100)
@@ -159,7 +159,16 @@ class Portfolio(models.Model):
 
     def __str__(self):
         return self.section.title
+    
+class ThemeColors(models.Model):
+    dark_mode = models.BooleanField()
+    light_mode = models.BooleanField()
 
+    color1 =  ColorField(default='#000000')
+    color2 =  ColorField(default='#000000')
+    color3 =  ColorField(default='#000000')
+    color4 =  ColorField(default='#000000')
+    color5 =  ColorField(default='#000000')
 
 # class Contact(models.Model):
 #     name = models.CharField(max_length=100)

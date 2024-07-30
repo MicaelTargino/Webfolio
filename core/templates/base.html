@@ -47,7 +47,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'core/skins/color-1.css'%}" />
     
         <!-- style switcher -->
-        <link
+        {% comment %} <link
           rel="stylesheet"
           type="text/css"
           href="{% static 'core/skins/color-1.css'%}"
@@ -86,7 +86,9 @@
           class="alternate-style"
           title="color-5"
           disabled
-        />
+        /> {% endcomment %}
+
+
         <link rel="stylesheet" href="{% static 'core/style_switcher/style-switcher.css'%}" />
 </head>
 <body class="dark">

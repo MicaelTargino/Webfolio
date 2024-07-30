@@ -1,17 +1,36 @@
 <div class="style-switcher">
+
     <div class="style-switcher-toggler s-icon">
         <i class="fas fa-cog fa-spin"></i>
     </div>
+    
     <div class="day-night s-icon">
         <i class="fas"></i>
     </div>
     <h4>Theme Colors</h4>
+    <style>
+        .style-switcher .color-1 {
+            background: {{ sections.theme_colors.color1 }};
+        } 
+        .style-switcher .color-2 {
+            background:  {{ sections.theme_colors.color2 }};
+        } 
+        .style-switcher .color-3 {
+            background:  {{ sections.theme_colors.color3 }};
+        } 
+        .style-switcher .color-4 {
+            background: {{ sections.theme_colors.color4 }};
+        } 
+        .style-switcher .color-5 {
+            background:  {{ sections.theme_colors.color5 }};
+        } 
+    </style>
     <div class="colors">
-        <span class="color-1" onclick="setActiveStyle('color-3')"></span>
-        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
-        <span class="color-3" onclick="setActiveStyle('color-1')"></span>
-        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
-        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+        <span class="color-1" onclick="setActiveStyle('{{sections.theme_colors.color1}}')"></span>
+        <span class="color-2" onclick="setActiveStyle('{{sections.theme_colors.color2}}')"></span>
+        <span class="color-3" onclick="setActiveStyle('{{sections.theme_colors.color3}}')"></span>
+        <span class="color-4" onclick="setActiveStyle('{{sections.theme_colors.color4}}')"></span>
+        <span class="color-5" onclick="setActiveStyle('{{sections.theme_colors.color5}}')"></span>
     </div>
 </div>
 <a href="#home" id="link-topo">

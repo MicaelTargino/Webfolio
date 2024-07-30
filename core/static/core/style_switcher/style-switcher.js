@@ -37,13 +37,15 @@ window.addEventListener('scroll', () => {
 // theme colors 
 const alternateStyles = document.querySelectorAll('.alternate-style');
 function setActiveStyle(color) {
-    alternateStyles.forEach((style) => {
-        if (color === style.getAttribute('title')) {
-            style.removeAttribute('disabled');
-        } else {
-            style.setAttribute('disabled', 'true');
-        }
-    })
+    var r = document.querySelector(':root');
+    r.style.setProperty('--skin-color', color);
+    // alternateStyles.forEach((style) => {
+    //     if (color === style.getAttribute('title')) {
+    //         style.removeAttribute('disabled');
+    //     } else {
+    //         style.setAttribute('disabled', 'true');
+    //     }
+    // })
     setTimeout(() => {
         setFavicon();
     }, 500)
