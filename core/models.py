@@ -38,7 +38,7 @@ class Contact(models.Model):
     
 
 class CV(models.Model):
-    cv = models.ImageField(upload_to='static/core/cv/')
+    cv = models.FileField(upload_to='static/core/cv/')
 
     def __str__(self):
         return self.cv.name
