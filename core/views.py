@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Hero, Contact, Portfolio, Skills, About, Aside, ThemeColors, CV
+
 # Create your views here.
 def home(request):
     hero = Hero.objects.all().first()
