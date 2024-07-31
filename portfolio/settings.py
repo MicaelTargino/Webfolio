@@ -126,3 +126,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# MAIL CONFIGURATION 
+
+# OUR SOFTWARE DEFAULT EMAIL SENDING DATA - CONFIG LATER 
+SENDER_MAIL='micaelgomestargino@gmail.com' 
+MAIL_PASSWORD='hhjg bfvt ewlb encu' 

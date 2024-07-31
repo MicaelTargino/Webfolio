@@ -43,43 +43,48 @@
         <div class="row">
           <div class="form-item col-6 padd-15">
             <div class="form-group">
-              <input type="text" name="name" class="form-control" placeholder="name" required />
+              <input type="text" name="name" class="form-control" placeholder="name*"/>
             </div>
           </div>
           <div class="form-item col-6 padd-15">
             <div class="form-group">
-              <input type="email" name="email" class="form-control" placeholder="email" required />
+              <input type="email" name="email" class="form-control" placeholder="email*"/>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="form-item col-12 padd-15">
             <div class="form-group">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required />
+              <input type="text" class="form-control" name="subject" placeholder="Subject"/>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="form-item col-12 padd-15">
             <div class="form-group">
-              <textarea name="body" class="form-control" id="" placeholder="Message" required></textarea>
+              <textarea name="body" class="form-control" id="" placeholder="Message*"></textarea>
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="form-item col-12 padd-15">
             <div class="form-group" style="display: flex">
-              <button type="submit" class="btnn" style="margin: 0 auto">Send Message</button>
+              <button id="contact-form-btnsubmit" type="submit" class="btnn" style="margin: 0 auto">
+                <i id="contact-btn-loader" class="fa fa-spinner fa-spin" style="margin-right: 6px; display:none;"></i>
+                <span>Send Mail</span>
+              </button>
             </div>
           </div>
         </div>
       </form>
     </div>
-    
     <script>
       document.querySelector('#contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        
+        var notyf = new Notyf();
+        showLoadingState();
+
         const formData = new FormData(this);
     
         const data = {
@@ -97,19 +102,37 @@
           method: "POST",
           body: JSON.stringify(data)
         })
-        .then(response => {
-          if (!response.ok) {
-            return response.json().then(err => Promise.reject(err));
-          }
-          return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-          cleanFormInputs();
+          if (data.status != 200) {
+            hideLoadingState();
+            notyf.error(data.message);
+          } else {
+            cleanFormInputs();
+            notyf.success('Email sent successfully!');
+            hideLoadingState();
+          }
         })
         .catch((error) => {
-          console.error('Error:', error);
+          console.log('Error:', error);
+          hideLoadingState();
+          notyf.error(error);
         });
       });
+
+      function showLoadingState() {
+        var loadingIcon = document.querySelector('#contact-btn-loader');
+        loadingIcon.style.display = 'inline-block';
+        var submitBtn = document.querySelector('#contact-form-btnsubmit span');
+        submitBtn.innerText = 'Sending...'
+      }
+
+      function hideLoadingState() {
+        var loadingIcon = document.querySelector('#contact-btn-loader');
+        loadingIcon.style.display = 'none';
+        var submitBtn = document.querySelector('#contact-form-btnsubmit span');
+        submitBtn.innerText = 'Send Mail';
+      }
 
       function cleanFormInputs() {
         var inputName = document.querySelector('#contactForm input[name="name"]');
