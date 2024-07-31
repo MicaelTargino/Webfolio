@@ -79,8 +79,7 @@
     <script>
       document.querySelector('#contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
-    
-        // const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        
         const formData = new FormData(this);
     
         const data = {
@@ -105,11 +104,23 @@
           return response.json();
         })
         .then(data => {
-          console.log('Success:', data);
+          cleanFormInputs();
         })
         .catch((error) => {
           console.error('Error:', error);
         });
       });
+
+      function cleanFormInputs() {
+        var inputName = document.querySelector('#contactForm input[name="name"]');
+        var inputEmail = document.querySelector('#contactForm input[name="email"]');
+        var inputSubject = document.querySelector('#contactForm input[name="subject"]');
+        var inputBody = document.querySelector('#contactForm textarea[name="body"]');
+
+        inputName.value = '';
+        inputEmail.value = '';
+        inputSubject.value = '';
+        inputBody.value = '';
+      }
     </script>
     
