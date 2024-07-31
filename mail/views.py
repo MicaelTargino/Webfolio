@@ -1,7 +1,8 @@
 from django.shortcuts import render
 import json
 from django.http import JsonResponse, HttpResponseBadRequest
-from .utils import send_email
+# from .utils import send_email
+from .tasks import send_email_task
 # Create your views here.
 
 def send_mail(request):
@@ -26,7 +27,7 @@ def send_mail(request):
         
         subject = data.get('subject', f'email from {name}')
 
-        send_email(name, email, subject, body)
+        send_email_task.delay(name, email, subject, body)
         return JsonResponse({'status': 200, 'message': 'Email sent successfully'})
     
     return HttpResponseBadRequest('Invalid request method')

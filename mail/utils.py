@@ -3,9 +3,8 @@ from typing import Literal
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from portfolio.settings import SENDER_MAIL, MAIL_PASSWORD
-def send_email(name, email, subject, body):  
 
-    print(SENDER_MAIL, MAIL_PASSWORD)
+def send_email(name, email, subject, body):  
 
     RECEIVER_MAIL = 'micaelgomestargino@gmail.com' # need to come from logged user information
 
