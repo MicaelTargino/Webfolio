@@ -8,7 +8,8 @@ You can checkout this other project by clicking [this link](https://github.com/M
 ## Features
 
 - Customizable Portfolios: Users can personalize their portfolio with various themes, layouts, and custom texts.
-- Data autocompletion: populate your texts and build your C
+- Data autocompletion: populate your texts and build your CV fetching data from Linkedin.
+- CV builder: Build your CV with the format that enables recruitment AI to read correctly.
 - Responsive Design: Portfolios created with WebFolio are mobile-friendly and look great on all devices.
 - Integrated Analytics: Track the performance and visitor metrics of your portfolio.
 - Secure and Reliable: Robust security features to protect user data and ensure reliability.
