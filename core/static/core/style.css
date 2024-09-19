@@ -1196,8 +1196,8 @@ body.dark .orcamento-wrapper {
     }
 
     .portfolio .portfolio-item {
-        flex: 0 0 70%;
-        max-width: 70%;
+        flex: 0 0 100%;
+        max-width: 100%;
         height: 15%;
         margin: 10px auto;
     }
