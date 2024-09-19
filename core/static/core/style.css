@@ -777,6 +777,15 @@ h3.my-profession {
     width: 100%;
     height: auto;
   }
+
+  @media (max-width: 768px) {
+    .overlay-content {
+        justify-content: space-evenly !important;
+    }
+     .overlay-content p {
+        display:none !important;
+     }
+  }
   
   .overlay {
     position: absolute;
